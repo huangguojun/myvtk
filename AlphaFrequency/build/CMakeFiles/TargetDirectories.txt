@@ -1,0 +1,3 @@
+/home/hgj/Project/vtk_pro/AlphaFrequency/build/CMakeFiles/rebuild_cache.dir
+/home/hgj/Project/vtk_pro/AlphaFrequency/build/CMakeFiles/AlphaFrequency.dir
+/home/hgj/Project/vtk_pro/AlphaFrequency/build/CMakeFiles/edit_cache.dir
