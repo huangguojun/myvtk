@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/hgj/Project/vtk_pro/RenderLargeImage/RenderLargeImage.cxx" "/home/hgj/Project/vtk_pro/RenderLargeImage/build/CMakeFiles/RenderLargeImage.dir/RenderLargeImage.cxx.o"
+  "/home/hgj/Project/vtk_pro/myvtk/RenderLargeImage/RenderLargeImage.cxx" "/home/hgj/Project/vtk_pro/myvtk/RenderLargeImage/build/CMakeFiles/RenderLargeImage.dir/RenderLargeImage.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

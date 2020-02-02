@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/hgj/Project/vtk_pro/RenderLargeImage/RenderLargeImage.cxx
+/home/hgj/Project/vtk_pro/myvtk/RenderLargeImage/RenderLargeImage.cxx
 vtkSmartPointer.h
 -
 vtkActor.h

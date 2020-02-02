@@ -65,6 +65,7 @@ int main (int argc, char *argv[])
     std::cout << "Interact with image to get desired view and then press 'e'"
         << std::endl;
     interactor->Start();
+ 
     std::cout << "Generating large image size: "
         << renderWindow->GetSize()[0] * magnification << " by "
         << renderWindow->GetSize()[1] * magnification
@@ -82,6 +83,7 @@ int main (int argc, char *argv[])
     writer->SetFileName(argv[2]);
     writer->SetInputConnection(renderLarge->GetOutputPort());
     writer->Write();
+    
 
     return EXIT_SUCCESS;
 }
