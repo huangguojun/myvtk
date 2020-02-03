@@ -1,3 +1,0 @@
-/home/hgj/Project/vtk_pro/myvtk/RenderLargeImage/build/CMakeFiles/rebuild_cache.dir
-/home/hgj/Project/vtk_pro/myvtk/RenderLargeImage/build/CMakeFiles/RenderLargeImage.dir
-/home/hgj/Project/vtk_pro/myvtk/RenderLargeImage/build/CMakeFiles/edit_cache.dir

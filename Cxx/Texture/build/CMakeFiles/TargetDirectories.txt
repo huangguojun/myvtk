@@ -1,0 +1,9 @@
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/edit_cache.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/rebuild_cache.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/TexturedSphere.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/ProjectedTexture.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/AnimateVectors.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/TextureCutQuadric.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/TextureThreshold.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/TextureCutSphere.dir
+/home/hgj/Project/vtk_pro/VTKExamples/src/Cxx/Texture/build/CMakeFiles/TexturePlane.dir

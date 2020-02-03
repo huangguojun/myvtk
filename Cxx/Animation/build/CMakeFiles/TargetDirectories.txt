@@ -1,0 +1,4 @@
+/home/hgj/Project/vtk_pro/myvtk/src/Cxx/Animation/build/CMakeFiles/rebuild_cache.dir
+/home/hgj/Project/vtk_pro/myvtk/src/Cxx/Animation/build/CMakeFiles/AnimateActors.dir
+/home/hgj/Project/vtk_pro/myvtk/src/Cxx/Animation/build/CMakeFiles/edit_cache.dir
+/home/hgj/Project/vtk_pro/myvtk/src/Cxx/Animation/build/CMakeFiles/RotatingSphere.dir

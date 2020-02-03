@@ -1,3 +1,0 @@
-/home/hgj/Project/vtk_pro/MoveActor/build/CMakeFiles/rebuild_cache.dir
-/home/hgj/Project/vtk_pro/MoveActor/build/CMakeFiles/MoveActor.dir
-/home/hgj/Project/vtk_pro/MoveActor/build/CMakeFiles/edit_cache.dir
