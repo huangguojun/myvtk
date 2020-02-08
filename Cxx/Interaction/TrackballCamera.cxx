@@ -11,62 +11,62 @@
 
 int main (int, char *[])
 {
-  // Create a sphere
-  vtkSmartPointer<vtkSphereSource> sphereSource =
-    vtkSmartPointer<vtkSphereSource>::New();
-  sphereSource->SetCenter(1.0, 0.0, 0.0);
-  sphereSource->Update();
+    // Create a sphere
+    vtkSmartPointer<vtkSphereSource> sphereSource =
+        vtkSmartPointer<vtkSphereSource>::New();
+    sphereSource->SetCenter(1.0, 0.0, 0.0);
+    sphereSource->Update();
 
-  // Create a mapper and actor
-  vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
-    vtkSmartPointer<vtkPolyDataMapper>::New();
-  sphereMapper->SetInputConnection(sphereSource->GetOutputPort());
+    // Create a mapper and actor
+    vtkSmartPointer<vtkPolyDataMapper> sphereMapper =
+        vtkSmartPointer<vtkPolyDataMapper>::New();
+    sphereMapper->SetInputConnection(sphereSource->GetOutputPort());
 
-  vtkSmartPointer<vtkActor> sphereActor =
-    vtkSmartPointer<vtkActor>::New();
-  sphereActor->SetMapper(sphereMapper);
+    vtkSmartPointer<vtkActor> sphereActor =
+        vtkSmartPointer<vtkActor>::New();
+    sphereActor->SetMapper(sphereMapper);
 
-  // Create a cone
-  vtkSmartPointer<vtkConeSource> coneSource =
-    vtkSmartPointer<vtkConeSource>::New();
-  
-  // Create a mapper and actor
-  vtkSmartPointer<vtkPolyDataMapper> coneMapper =
-    vtkSmartPointer<vtkPolyDataMapper>::New();
-  coneMapper->SetInputConnection(coneSource->GetOutputPort());
+    // Create a cone
+    vtkSmartPointer<vtkConeSource> coneSource =
+        vtkSmartPointer<vtkConeSource>::New();
 
-  vtkSmartPointer<vtkActor> coneActor =
-    vtkSmartPointer<vtkActor>::New();
-  coneActor->SetMapper(coneMapper);
+    // Create a mapper and actor
+    vtkSmartPointer<vtkPolyDataMapper> coneMapper =
+        vtkSmartPointer<vtkPolyDataMapper>::New();
+    coneMapper->SetInputConnection(coneSource->GetOutputPort());
 
-  // A renderer and render window
-  vtkSmartPointer<vtkRenderer> renderer =
-    vtkSmartPointer<vtkRenderer>::New();
-  vtkSmartPointer<vtkRenderWindow> renderWindow =
-    vtkSmartPointer<vtkRenderWindow>::New();
-  renderWindow->AddRenderer(renderer);
+    vtkSmartPointer<vtkActor> coneActor =
+        vtkSmartPointer<vtkActor>::New();
+    coneActor->SetMapper(coneMapper);
 
-  // An interactor
-  vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = 
-    vtkSmartPointer<vtkRenderWindowInteractor>::New();
-  renderWindowInteractor->SetRenderWindow(renderWindow);
+    // A renderer and render window
+    vtkSmartPointer<vtkRenderer> renderer =
+        vtkSmartPointer<vtkRenderer>::New();
+    vtkSmartPointer<vtkRenderWindow> renderWindow =
+        vtkSmartPointer<vtkRenderWindow>::New();
+    renderWindow->AddRenderer(renderer);
 
-  // Add the actors to the scene
-  renderer->AddActor(sphereActor);
-  renderer->AddActor(coneActor);
-  renderer->SetBackground(.1,.2,.3); // Background color dark blue
+    // An interactor
+    vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor = 
+        vtkSmartPointer<vtkRenderWindowInteractor>::New();
+    renderWindowInteractor->SetRenderWindow(renderWindow);
 
-  // Render an image (lights and cameras are created automatically)
-  renderWindow->SetWindowName("Trackball Camera");
-  renderWindow->Render();
+    // Add the actors to the scene
+    renderer->AddActor(sphereActor);
+    renderer->AddActor(coneActor);
+    renderer->SetBackground(.1,.2,.3); // Background color dark blue
 
-  vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = 
-    vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); //like paraview
-  
-  renderWindowInteractor->SetInteractorStyle( style );
-  
-  // Begin mouse interaction
-  renderWindowInteractor->Start();
-  
-  return EXIT_SUCCESS;
+    // Render an image (lights and cameras are created automatically)
+    renderWindow->SetWindowName("Trackball Camera");
+    renderWindow->Render();
+
+    vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = 
+        vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); //like paraview
+
+    renderWindowInteractor->SetInteractorStyle( style );
+
+    // Begin mouse interaction
+    renderWindowInteractor->Start();
+
+    return EXIT_SUCCESS;
 }

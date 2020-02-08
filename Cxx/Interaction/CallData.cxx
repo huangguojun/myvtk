@@ -16,107 +16,107 @@
 class vtkMyTestFilter : public vtkPolyDataAlgorithm
 {
 public:
-  vtkTypeMacro(vtkMyTestFilter,vtkPolyDataAlgorithm);
-  static vtkMyTestFilter *New();
+    vtkTypeMacro(vtkMyTestFilter,vtkPolyDataAlgorithm);
+    static vtkMyTestFilter *New();
 
-  int RefreshEvent;
-
+    int RefreshEvent;
 protected:
-  vtkMyTestFilter()
-  {
-    this->SetNumberOfInputPorts(0);
+    vtkMyTestFilter()
+    {
+        this->SetNumberOfInputPorts(0);
 
-    this->RefreshEvent = vtkCommand::UserEvent + 1;
+        this->RefreshEvent = vtkCommand::UserEvent + 1;
 
-    this->Counter = 0;
-  }
+        this->Counter = 0;
+    }
 
-  int RequestData(vtkInformation *, vtkInformationVector **, vtkInformationVector *)
-  {
-      this->InvokeEvent(this->RefreshEvent, &this->Counter);
-      this->Counter++;
-      return 1;
-  }
+    int RequestData(vtkInformation *, vtkInformationVector **, vtkInformationVector *) override
+    {
+        this->InvokeEvent(this->RefreshEvent, &this->Counter);
+        this->Counter++;
+        return 1;
+    }
 
 private:
-  vtkMyTestFilter(const vtkMyTestFilter&);  // Not implemented.
-  void operator=(const vtkMyTestFilter&);  // Not implemented.
+    vtkMyTestFilter(const vtkMyTestFilter&);  // Not implemented.
+    void operator=(const vtkMyTestFilter&);  // Not implemented.
 
-  unsigned int Counter;
+    unsigned int Counter;
 };
 
 vtkStandardNewMacro(vtkMyTestFilter);
 
 static void CallbackFunction(vtkObject* caller,
-                long unsigned int eventId,
-                void* clientData,
-                void* callData );
+            long unsigned int eventId,
+            void* clientData,
+            void* callData );
 
 class vtkTimerCallback : public vtkCommand
 {
-  public:
-    static vtkTimerCallback *New()
-    {
-      vtkTimerCallback *cb = new vtkTimerCallback;
+    public:
+        static vtkTimerCallback *New()
+        {
+            vtkTimerCallback *cb = new vtkTimerCallback;
 
-      return cb;
-    }
+            return cb;
+        }
 
-    virtual void Execute(vtkObject *vtkNotUsed(caller),
-                         unsigned long vtkNotUsed(eventId),
-                         void *vtkNotUsed(callData))
-    {
-        TestFilter->Modified();
-        TestFilter->Update();
-    }
+        virtual void Execute(vtkObject *vtkNotUsed(caller),
+                    unsigned long vtkNotUsed(eventId),
+                    void *vtkNotUsed(callData))
+        {
+            TestFilter->Modified();
+            TestFilter->Update();
+        }
 
-    vtkMyTestFilter* TestFilter;
+        vtkMyTestFilter* TestFilter;
 
 };
 
 int main(int, char *[])
 {
-  // Create a renderer, render window, and interactor
-  vtkSmartPointer<vtkRenderer> renderer =
-    vtkSmartPointer<vtkRenderer>::New();
-  vtkSmartPointer<vtkRenderWindow> renderWindow =
-    vtkSmartPointer<vtkRenderWindow>::New();
-  renderWindow->AddRenderer(renderer);
-  vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
-    vtkSmartPointer<vtkRenderWindowInteractor>::New();
-  renderWindowInteractor->SetRenderWindow(renderWindow);
+    // Create a renderer, render window, and interactor
+    vtkSmartPointer<vtkRenderer> renderer =
+        vtkSmartPointer<vtkRenderer>::New();
+    vtkSmartPointer<vtkRenderWindow> renderWindow =
+        vtkSmartPointer<vtkRenderWindow>::New();
+    renderWindow->AddRenderer(renderer);
 
-  vtkSmartPointer<vtkMyTestFilter> testFilter =
-    vtkSmartPointer<vtkMyTestFilter>::New();
+    vtkSmartPointer<vtkRenderWindowInteractor> renderWindowInteractor =
+        vtkSmartPointer<vtkRenderWindowInteractor>::New();
+    renderWindowInteractor->SetRenderWindow(renderWindow);
 
-  vtkSmartPointer<vtkCallbackCommand> callback =
-    vtkSmartPointer<vtkCallbackCommand>::New();
-  callback->SetCallback(CallbackFunction );
-  testFilter->AddObserver(testFilter->RefreshEvent, callback);
-  testFilter->Update();
+    vtkSmartPointer<vtkMyTestFilter> testFilter =
+        vtkSmartPointer<vtkMyTestFilter>::New();
 
-  renderWindow->Render();
-  renderWindowInteractor->Initialize();
+    vtkSmartPointer<vtkCallbackCommand> callback =
+        vtkSmartPointer<vtkCallbackCommand>::New();
+    callback->SetCallback(CallbackFunction );
+    testFilter->AddObserver(testFilter->RefreshEvent, callback);
+    testFilter->Update();
 
-  // Sign up to receive TimerEvent
-  vtkSmartPointer<vtkTimerCallback> timerCallback =
-    vtkSmartPointer<vtkTimerCallback>::New();
-  timerCallback->TestFilter = testFilter;
+    renderWindow->Render();
+    renderWindowInteractor->Initialize();
 
-  renderWindowInteractor->AddObserver(vtkCommand::TimerEvent, timerCallback);
+    // Sign up to receive TimerEvent
+    vtkSmartPointer<vtkTimerCallback> timerCallback =
+        vtkSmartPointer<vtkTimerCallback>::New();
+    timerCallback->TestFilter = testFilter;
 
-  renderWindowInteractor->CreateRepeatingTimer(100);
+    renderWindowInteractor->AddObserver(vtkCommand::TimerEvent, timerCallback);
 
-  renderWindowInteractor->Start();
+    renderWindowInteractor->CreateRepeatingTimer(100);
 
-  return EXIT_SUCCESS;
+    renderWindowInteractor->Start();
+
+    return EXIT_SUCCESS;
 }
 
 void CallbackFunction(vtkObject* vtkNotUsed(caller),
-                      long unsigned int vtkNotUsed(eventId),
-                      void* vtkNotUsed(clientData),
-                      void* callData )
+            long unsigned int vtkNotUsed(eventId),
+            void* vtkNotUsed(clientData),
+            void* callData )
 {
-  unsigned int* callDataCasted = reinterpret_cast<unsigned int*>(callData);
-  std::cout << *callDataCasted << std::endl;
+    unsigned int* callDataCasted = reinterpret_cast<unsigned int*>(callData);
+    std::cout << *callDataCasted << std::endl;
 }

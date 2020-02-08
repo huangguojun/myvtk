@@ -24,106 +24,106 @@
 class vtkBorderCallback2 : public vtkCommand
 {
 public:
-  vtkBorderCallback2(){}
+    vtkBorderCallback2(){}
 
-  static vtkBorderCallback2 *New()
-  {
-    return new vtkBorderCallback2;
-  }
-
-  virtual void Execute(vtkObject *caller, unsigned long, void*)
-  {
-
-    vtkBorderWidget *borderWidget =
-      reinterpret_cast<vtkBorderWidget*>(caller);
-
-    // Get the world coordinates of the two corners of the box
-    vtkCoordinate* lowerLeftCoordinate =
-      static_cast<vtkBorderRepresentation*>
-      (borderWidget->GetRepresentation())->GetPositionCoordinate();
-    double* lowerLeft =
-      lowerLeftCoordinate->GetComputedWorldValue(this->LeftRenderer);
-    std::cout << "Lower left coordinate: "
-              << lowerLeft[0] << ", "
-              << lowerLeft[1] << ", "
-              << lowerLeft[2] << std::endl;
-
-    vtkCoordinate* upperRightCoordinate =
-      static_cast<vtkBorderRepresentation*>
-      (borderWidget->GetRepresentation())->GetPosition2Coordinate();
-    double* upperRight =
-      upperRightCoordinate ->GetComputedWorldValue(this->LeftRenderer);
-    std::cout << "Upper right coordinate: "
-              << upperRight[0] << ", "
-              << upperRight[1] << ", "
-              << upperRight[2] << std::endl;
-
-    double* bounds = this->ImageActor->GetBounds();
-    double xmin = bounds[0];
-    double xmax = bounds[1];
-    double ymin = bounds[2];
-    double ymax = bounds[3];
-
-    if( (lowerLeft[0] > xmin) &&
-        (upperRight[0] < xmax) &&
-        (lowerLeft[1] > ymin) &&
-        (upperRight[1] < ymax) )
+    static vtkBorderCallback2 *New()
     {
-      this->ClipFilter->SetOutputWholeExtent(
-        vtkMath::Round(lowerLeft[0]),
-        vtkMath::Round(upperRight[0]),
-        vtkMath::Round(lowerLeft[1]),
-        vtkMath::Round(upperRight[1]), 0, 1);
+        return new vtkBorderCallback2;
     }
-    else
-    {
-      std::cout << "box is NOT inside image" << std::endl;
-    }
-  }
 
-  void SetLeftRenderer(vtkSmartPointer<vtkRenderer> renderer)
+    virtual void Execute(vtkObject *caller, unsigned long, void*)
+    {
+
+        vtkBorderWidget *borderWidget =
+            reinterpret_cast<vtkBorderWidget*>(caller);
+
+        // Get the world coordinates of the two corners of the box
+        vtkCoordinate* lowerLeftCoordinate =
+            static_cast<vtkBorderRepresentation*>
+            (borderWidget->GetRepresentation())->GetPositionCoordinate();
+        double* lowerLeft =
+            lowerLeftCoordinate->GetComputedWorldValue(this->LeftRenderer);
+        std::cout << "Lower left coordinate: "
+            << lowerLeft[0] << ", "
+            << lowerLeft[1] << ", "
+            << lowerLeft[2] << std::endl;
+
+        vtkCoordinate* upperRightCoordinate =
+            static_cast<vtkBorderRepresentation*>
+            (borderWidget->GetRepresentation())->GetPosition2Coordinate();
+        double* upperRight =
+            upperRightCoordinate ->GetComputedWorldValue(this->LeftRenderer);
+        std::cout << "Upper right coordinate: "
+            << upperRight[0] << ", "
+            << upperRight[1] << ", "
+            << upperRight[2] << std::endl;
+
+        double* bounds = this->ImageActor->GetBounds();
+        double xmin = bounds[0];
+        double xmax = bounds[1];
+        double ymin = bounds[2];
+        double ymax = bounds[3];
+
+        if( (lowerLeft[0] > xmin) &&
+                    (upperRight[0] < xmax) &&
+                    (lowerLeft[1] > ymin) &&
+                    (upperRight[1] < ymax) )
+        {
+            this->ClipFilter->SetOutputWholeExtent(
+                        vtkMath::Round(lowerLeft[0]),
+                        vtkMath::Round(upperRight[0]),
+                        vtkMath::Round(lowerLeft[1]),
+                        vtkMath::Round(upperRight[1]), 0, 1);
+        }
+        else
+        {
+            std::cout << "box is NOT inside image" << std::endl;
+        }
+    }
+
+    void SetLeftRenderer(vtkSmartPointer<vtkRenderer> renderer)
     {this->LeftRenderer = renderer;}
-  void SetImageActor(vtkSmartPointer<vtkImageActor> actor)
+    void SetImageActor(vtkSmartPointer<vtkImageActor> actor)
     {this->ImageActor   = actor;}
-  void SetClipFilter(vtkSmartPointer<vtkImageClip> clip)
+    void SetClipFilter(vtkSmartPointer<vtkImageClip> clip)
     {this->ClipFilter   = clip;}
 
 private:
-  vtkSmartPointer<vtkRenderer>   LeftRenderer;
-  vtkSmartPointer<vtkImageActor> ImageActor;
-  vtkSmartPointer<vtkImageClip>  ClipFilter;
+    vtkSmartPointer<vtkRenderer>   LeftRenderer;
+    vtkSmartPointer<vtkImageActor> ImageActor;
+    vtkSmartPointer<vtkImageClip>  ClipFilter;
 };
 
 int main(int argc, char* argv[])
 {
-  // Parse input arguments
-  if ( argc != 2 )
-  {
-    std::cerr << "Usage: " << argv[0]
-              << " Filename(.jpg)" << std::endl;
-    return EXIT_FAILURE;
-  }
+    // Parse input arguments
+    if ( argc != 2 )
+    {
+        std::cerr << "Usage: " << argv[0]
+            << " Filename(.jpg)" << std::endl;
+        return EXIT_FAILURE;
+    }
 
-  std::string inputFilename = argv[1];
+    std::string inputFilename = argv[1];
 
-  // Read the image
-  vtkSmartPointer<vtkJPEGReader> jPEGReader =
-    vtkSmartPointer<vtkJPEGReader>::New();
+    // Read the image
+    vtkSmartPointer<vtkJPEGReader> jPEGReader =
+        vtkSmartPointer<vtkJPEGReader>::New();
 
-  if( !jPEGReader->CanReadFile( inputFilename.c_str() ) )
-  {
-    std::cout << "Error: cannot read " << inputFilename << std::endl;
-    return EXIT_FAILURE;
-  }
+    if( !jPEGReader->CanReadFile( inputFilename.c_str() ) )
+    {
+        std::cout << "Error: cannot read " << inputFilename << std::endl;
+        return EXIT_FAILURE;
+    }
 
-  jPEGReader->SetFileName ( inputFilename.c_str() );
-  jPEGReader->Update();
+    jPEGReader->SetFileName ( inputFilename.c_str() );
+    jPEGReader->Update();
 
-  int extent[6];
-  jPEGReader->GetOutput()->GetExtent(extent);
-  //xmin, xmax, ymin, ymax
-  //std::cout << "extent: " << extent[0] << " " << extent[1] << " " <<
-  //extent[2] << " " <<  extent[3] << " " <<  extent[4] << " " <<
+    int extent[6];
+    jPEGReader->GetOutput()->GetExtent(extent);
+    //xmin, xmax, ymin, ymax
+    //std::cout << "extent: " << extent[0] << " " << extent[1] << " " <<
+    //extent[2] << " " <<  extent[3] << " " <<  extent[4] << " " <<
   //extent[5] << std::endl;
 
   vtkSmartPointer<vtkImageActor> imageActor =
