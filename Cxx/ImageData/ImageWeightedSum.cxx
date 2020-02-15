@@ -16,7 +16,10 @@
 #include <array>
 
 int main(int, char *[]) {
-  vtkNew<vtkNamedColors> colors;
+
+    
+  vtkSmartPointer<vtkNamedColors> colors = vtkSmartPointer<vtkNamedColors>::New() ;
+
 
   std::array<double, 4> bkgL = {{0.6, 0.5, 0.4, 1.0}};
   std::array<double, 4> bkgC = {{0.1, 0.5, 0.4, 1.0}};

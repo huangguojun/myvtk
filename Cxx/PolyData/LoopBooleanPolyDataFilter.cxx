@@ -1,5 +1,5 @@
 #include <vtkSmartPointer.h>
-#include <vtkLoopBooleanPolyDataFilter.h>
+//#include <vtkLoopBooleanPolyDataFilter.h>
 
 #include <vtkCleanPolyData.h>
 #include <vtkTriangleFilter.h>
@@ -31,6 +31,7 @@ void PositionCamera(vtkSmartPointer<vtkRenderer> &renderer,
 
 int main(int argc, char *argv[])
 {
+    /*
   vtkSmartPointer<vtkPolyData> input1;
   vtkSmartPointer<vtkPolyData> input2;
 
@@ -170,6 +171,7 @@ int main(int argc, char *argv[])
   renWinInteractor->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 namespace
 {

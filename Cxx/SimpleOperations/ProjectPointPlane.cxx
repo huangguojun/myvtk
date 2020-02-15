@@ -1,8 +1,10 @@
+/*
 #include <vtkSmartPointer.h>
 #include <vtkPlane.h>
-
+*/
 int main(int, char *[])
 {
+    /*
   vtkSmartPointer<vtkPlane> plane = 
       vtkSmartPointer<vtkPlane>::New();
   plane->SetOrigin(0.0, 0.0, 0.0);
@@ -19,4 +21,6 @@ int main(int, char *[])
             << projected[1] << " " << projected[2] << std::endl;
   
   return EXIT_SUCCESS;
+  */
 }
+

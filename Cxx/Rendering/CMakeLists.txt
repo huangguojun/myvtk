@@ -4,7 +4,7 @@ if(NOT VTK_BINARY_DIR)
   set(VTK_LIBRARIES "")
   find_package(VTK COMPONENTS
     vtkCommonColor
-    CommonComputationalGeometry
+#   CommonComputationalGeometry
     vtkCommonCore
     vtkCommonDataModel
     vtkCommonSystem
@@ -12,7 +12,7 @@ if(NOT VTK_BINARY_DIR)
     vtkFiltersCore
     vtkFiltersGeneral
     vtkFiltersGeometry
-    FiltersModeling
+# FiltersModeling
     vtkFiltersSources
     vtkIOGeometry
     vtkIOImage
@@ -25,8 +25,8 @@ if(NOT VTK_BINARY_DIR)
     vtkImagingSources
     vtkInteractionImage
     vtkInteractionStyle
-    InteractionWidgets
-    RenderingAnnotation
+# InteractionWidgets
+#   RenderingAnnotation
     vtkRenderingContextOpenGL2
     vtkRenderingCore
     vtkRenderingFreeType

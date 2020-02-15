@@ -1,5 +1,5 @@
 #include <vtkSmartPointer.h>
-#include <vtkDensifyPointCloudFilter.h>
+//#include <vtkDensifyPointCloudFilter.h>
 
 #include <vtkBYUReader.h>
 #include <vtkOBJReader.h>
@@ -28,6 +28,7 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(const char *fileName);
 
 int main (int argc, char *argv[])
 {
+    /*
   vtkSmartPointer<vtkPolyData> polyData = ReadPolyData(argc > 1 ? argv[1] : "");;
 
   double bounds[6];
@@ -125,6 +126,7 @@ int main (int argc, char *argv[])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 
 namespace

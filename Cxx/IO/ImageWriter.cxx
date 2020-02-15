@@ -148,7 +148,7 @@ void WriteImage(std::string const& fileName, vtkRenderWindow* renWin, bool rgba)
     auto window_to_image_filter =
         vtkSmartPointer<vtkWindowToImageFilter>::New();
     window_to_image_filter->SetInput(renWin);
-    window_to_image_filter->SetScale(1); // image quality
+    //window_to_image_filter->SetScale(1); // image quality
     if (rgba)
     {
       window_to_image_filter->SetInputBufferTypeToRGBA();

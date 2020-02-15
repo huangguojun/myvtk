@@ -14,6 +14,7 @@
 
 int main(int, char*[])
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   // Set the background color.
@@ -130,4 +131,5 @@ int main(int, char*[])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }

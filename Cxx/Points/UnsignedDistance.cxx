@@ -11,7 +11,7 @@
 #include <vtkRenderer.h>
 #include <vtkScalarBarActor.h>
 #include <vtkSmartPointer.h>
-#include <vtkUnsignedDistance.h>
+//#include <vtkUnsignedDistance.h>
 
 // Readers
 #include <vtkBYUReader.h>
@@ -34,6 +34,7 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(std::string const& fileName);
 
 int main(int argc, char* argv[])
 {
+    /*
   auto polyData = ReadPolyData(argc > 1 ? argv[1] : "");
   ;
 
@@ -153,6 +154,7 @@ int main(int argc, char* argv[])
   std::cout << distance->GetOutput()->GetScalarRange()[0] << ", "
             << distance->GetOutput()->GetScalarRange()[1] << std::endl;
   return EXIT_SUCCESS;
+  */
 }
 
 namespace {

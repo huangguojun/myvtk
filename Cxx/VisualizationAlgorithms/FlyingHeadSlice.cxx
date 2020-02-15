@@ -18,6 +18,7 @@
 
 int main(int argc, char* argv[])
 {
+    /*
   if (argc < 2)
   {
     std::cout << "Generate 2D contour lines, corresponding to tissue density, "
@@ -120,4 +121,5 @@ int main(int argc, char* argv[])
 
   iren->Start();
   return EXIT_SUCCESS;
+  */
 }

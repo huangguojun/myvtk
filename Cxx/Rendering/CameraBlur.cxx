@@ -14,7 +14,7 @@
 
 int main(int, char* [])
 {
-  vtkNew<vtkNamedColors> colors;
+ /* vtkNew<vtkNamedColors> colors;
 
   // Set the background color.
   std::array<unsigned char , 4> bkg{{26, 51, 102, 255}};
@@ -79,4 +79,5 @@ int main(int, char* [])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }

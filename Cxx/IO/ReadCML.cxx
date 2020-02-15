@@ -14,7 +14,7 @@
 
 int main(int argc, char *argv[])
 {
-  std::string fname(argv[1]);
+ /* std::string fname(argv[1]);
   vtkNew<vtkCMLMoleculeReader> cmlSource;
 
   cmlSource->SetFileName(fname.c_str());
@@ -52,4 +52,5 @@ int main(int argc, char *argv[])
   renderWindow->GetInteractor()->Start();
 
   return EXIT_SUCCESS;
+  */
 }

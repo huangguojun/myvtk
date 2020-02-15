@@ -21,12 +21,12 @@
 #include <vtkPointData.h>
 #include <vtkPolyData.h>
 #include <vtkPolyDataMapper.h>
-#include <vtkPolyDataTangents.h>
+//#include <vtkPolyDataTangents.h>
 #include <vtkProperty.h>
 #include <vtkRenderWindow.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
-#include <vtkSkybox.h>
+//#include <vtkSkybox.h>
 #include <vtkSliderRepresentation2D.h>
 #include <vtkSliderWidget.h>
 #include <vtkSmartPointer.h>
@@ -126,7 +126,7 @@ public:
     double value = static_cast<vtkSliderRepresentation2D*>(
                        sliderWidget->GetRepresentation())
                        ->GetValue();
-    this->property->SetMetallic(value);
+    //this->property->SetMetallic(value);
   }
   SliderCallbackMetallic() : property(nullptr)
   {
@@ -147,7 +147,7 @@ public:
     double value = static_cast<vtkSliderRepresentation2D*>(
                        sliderWidget->GetRepresentation())
                        ->GetValue();
-    this->property->SetRoughness(value);
+ //   this->property->SetRoughness(value);
   }
   SliderCallbackRoughness() : property(nullptr)
   {
@@ -168,7 +168,7 @@ public:
     double value = static_cast<vtkSliderRepresentation2D*>(
                        sliderWidget->GetRepresentation())
                        ->GetValue();
-    this->property->SetOcclusionStrength(value);
+   // this->property->SetOcclusionStrength(value);
   }
   SliderCallbackOcclusionStrength() : property(nullptr)
   {
@@ -189,7 +189,7 @@ public:
     double value = static_cast<vtkSliderRepresentation2D*>(
                        sliderWidget->GetRepresentation())
                        ->GetValue();
-    this->property->SetNormalScale(value);
+//    this->property->SetNormalScale(value);
   }
   SliderCallbackNormalScale() : property(nullptr)
   {
@@ -222,6 +222,7 @@ MakeSliderWidget(SliderProperties const& properties);
 
 int main(int argc, char* argv[])
 {
+    /*
   if (!VTKVersionOk(8, 90, 0))
   {
     std::cerr << "You need VTK version 8.90 or greater to run this program."
@@ -455,6 +456,7 @@ int main(int argc, char* argv[])
   renderWindow->Render();
   interactor->Start();
   return EXIT_SUCCESS;
+  */
 }
 
 namespace {
@@ -526,6 +528,7 @@ bool VTKVersionOk(unsigned long long const& major,
 
 vtkSmartPointer<vtkPolyData> GetBoy()
 {
+    /*
   auto uResolution = 51;
   auto vResolution = 51;
   auto surface = vtkSmartPointer<vtkParametricBoy>::New();
@@ -542,10 +545,12 @@ vtkSmartPointer<vtkPolyData> GetBoy()
   tangents->SetInputData(pd);
   tangents->Update();
   return tangents->GetOutput();
+  */
 }
 
 vtkSmartPointer<vtkPolyData> GetMobius()
 {
+    /*
   auto uResolution = 51;
   auto vResolution = 51;
   auto surface = vtkSmartPointer<vtkParametricMobius>::New();
@@ -572,10 +577,12 @@ vtkSmartPointer<vtkPolyData> GetMobius()
   transformFilter->Update();
 
   return transformFilter->GetOutput();
+  */
 }
 
 vtkSmartPointer<vtkPolyData> GetRandomHills()
 {
+    /*
   auto uResolution = 51;
   auto vResolution = 51;
   auto surface = vtkSmartPointer<vtkParametricRandomHills>::New();
@@ -606,10 +613,12 @@ vtkSmartPointer<vtkPolyData> GetRandomHills()
   transformFilter->Update();
 
   return transformFilter->GetOutput();
+  */
 }
 
 vtkSmartPointer<vtkPolyData> GetTorus()
 {
+    /*
   auto uResolution = 51;
   auto vResolution = 51;
   auto surface = vtkSmartPointer<vtkParametricTorus>::New();
@@ -635,10 +644,12 @@ vtkSmartPointer<vtkPolyData> GetTorus()
   transformFilter->Update();
 
   return transformFilter->GetOutput();
+  */
 }
 
 vtkSmartPointer<vtkPolyData> GetSphere()
 {
+    /*
   auto thetaResolution = 32;
   auto phiResolution = 32;
   auto surface = vtkSmartPointer<vtkTexturedSphereSource>::New();
@@ -650,10 +661,12 @@ vtkSmartPointer<vtkPolyData> GetSphere()
   tangents->SetInputConnection(surface->GetOutputPort());
   tangents->Update();
   return tangents->GetOutput();
+  */
 }
 
 vtkSmartPointer<vtkPolyData> GetCube()
 {
+/*
   auto surface = vtkSmartPointer<vtkCubeSource>::New();
 
   // Triangulate
@@ -668,6 +681,7 @@ vtkSmartPointer<vtkPolyData> GetCube()
   tangents->SetInputConnection(subdivide->GetOutputPort());
   tangents->Update();
   return tangents->GetOutput();
+  */
 }
 
 vtkSmartPointer<vtkPolyData> UVTcoords(const float& uResolution,
@@ -737,6 +751,7 @@ vtkSmartPointer<vtkTexture> ReadCubeMap(std::string const& folderRoot,
                                         std::string const& fileRoot,
                                         std::string const& ext, int const& key)
 {
+    /*
   // A map of cube map naming conventions and the corresponding file name
   // components.
   std::map<int, std::vector<std::string>> fileNames{
@@ -777,11 +792,13 @@ vtkSmartPointer<vtkTexture> ReadCubeMap(std::string const& folderRoot,
     ++i;
   }
   return texture;
+  */
 }
 
 vtkSmartPointer<vtkSliderWidget>
 MakeSliderWidget(SliderProperties const& properties)
 {
+    /*
   auto slider = vtkSmartPointer<vtkSliderRepresentation2D>::New();
 
   slider->SetMinimumValue(properties.minimumValue);
@@ -803,6 +820,7 @@ MakeSliderWidget(SliderProperties const& properties)
   sliderWidget->SetRepresentation(slider);
 
   return sliderWidget;
+  */
 }
 
 } // namespace

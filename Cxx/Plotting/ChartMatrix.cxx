@@ -18,6 +18,7 @@
 //----------------------------------------------------------------------------
 int main( int, char * [] )
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   // Set up a 2D scene, add an XY chart to it
@@ -154,4 +155,5 @@ int main( int, char * [] )
   view->GetInteractor()->Initialize();
   view->GetInteractor()->Start();
   return EXIT_SUCCESS;
+  */
 }

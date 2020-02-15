@@ -16,7 +16,7 @@
 #if VTK_VERSION_NUMBER >= 89000000000ULL
 #define VTK890 1
 #endif
-
+/*
 // Constructor
 EventQtSlotConnect::EventQtSlotConnect()
 {
@@ -72,3 +72,5 @@ void EventQtSlotConnect::slot_clicked(vtkObject*, unsigned long, void*, void*)
 {
   std::cout << "Clicked." << std::endl;
 }
+
+*/

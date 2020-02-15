@@ -1,5 +1,5 @@
 #include <vtkSmartPointer.h>
-#include "vtkGLTFExporter.h"
+//#include "vtkGLTFExporter.h"
 
 #include <vtkArrowSource.h>
 #include <vtkSphereSource.h>
@@ -21,7 +21,7 @@
 #include <array>
 
 int main(int argc, char *argv[])
-{
+{/*
   if (argc < 2)
   {
     std::cout << "Uaage: GLTFExporter file.gltf" << std::endl;
@@ -176,4 +176,5 @@ int main(int argc, char *argv[])
   writer->Write();
 
   return EXIT_SUCCESS;
+  */
 }

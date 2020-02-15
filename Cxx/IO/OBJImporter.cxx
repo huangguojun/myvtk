@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 
   for (vtkIdType a = 0; a < actors->GetNumberOfItems(); ++a)
   {
-    std::cout << importer->GetOutputDescription(a) << std::endl;
+   // std::cout << importer->GetOutputDescription(a) << std::endl;
 
     vtkActor* actor = actors->GetNextActor();
 

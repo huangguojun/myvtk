@@ -1,5 +1,5 @@
 #include <vtkSmartPointer.h>
-#include <vtkMaskPointsFilter.h>
+//#include <vtkMaskPointsFilter.h>
 #include <vtkBoundedPointSource.h>
 #include <vtkImageData.h>
 #include <vtkCone.h>
@@ -20,6 +20,7 @@ static vtkSmartPointer<vtkImageData> CreatePoints();
 
 int main (int argc, char *argv[])
 {
+    /*
   vtkSmartPointer<vtkImageData> imageMask;
   if (argc < 2)
   {
@@ -117,6 +118,7 @@ int main (int argc, char *argv[])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 
 static vtkSmartPointer<vtkImageData> CreatePoints()

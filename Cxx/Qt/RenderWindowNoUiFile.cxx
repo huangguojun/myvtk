@@ -1,7 +1,7 @@
 #include <QApplication>
 
 #include <vtkActor.h>
-#include <vtkGenericOpenGLRenderWindow.h>
+//#include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkNamedColors.h>
 #include <vtkNew.h>
 #include <vtkPolyDataMapper.h>
@@ -16,10 +16,11 @@
 #endif
 
 #include <QSurfaceFormat>
-#include <QVTKOpenGLNativeWidget.h>
+//#include <QVTKOpenGLNativeWidget.h>
 
 int main(int argc, char** argv)
 {
+    /*
   // needed to ensure appropriate OpenGL context is created for VTK rendering.
   QSurfaceFormat::setDefaultFormat(QVTKOpenGLNativeWidget::defaultFormat());
 
@@ -63,4 +64,5 @@ int main(int argc, char** argv)
   app.exec();
 
   return EXIT_SUCCESS;
+  */
 }

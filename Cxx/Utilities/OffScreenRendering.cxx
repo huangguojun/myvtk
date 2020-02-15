@@ -20,54 +20,54 @@ int main(int, char *argv[])
 
 int main(int, char *[])
 {
-  // Setup offscreen rendering
-  vtkSmartPointer<vtkGraphicsFactory> graphics_factory = 
-    vtkSmartPointer<vtkGraphicsFactory>::New();
-  graphics_factory->SetOffScreenOnlyMode( 1);
-  graphics_factory->SetUseMesaClasses( 1 );
-  
-  vtkSmartPointer<vtkImagingFactory> imaging_factory = 
-    vtkSmartPointer<vtkImagingFactory>::New();
-  imaging_factory->SetUseMesaClasses( 1 ); 
-  
-  // Create a sphere
-  vtkSmartPointer<vtkSphereSource> sphereSource = 
-    vtkSmartPointer<vtkSphereSource>::New();
-    
-  // Create a mapper and actor
-  vtkSmartPointer<vtkPolyDataMapper> mapper = 
-    vtkSmartPointer<vtkPolyDataMapper>::New();
-  mapper->SetInputConnection(sphereSource->GetOutputPort());
-  
-  vtkSmartPointer<vtkActor> actor = 
-    vtkSmartPointer<vtkActor>::New();
-  actor->SetMapper(mapper);
-  
-  // A renderer and render window
-  vtkSmartPointer<vtkRenderer> renderer = 
-    vtkSmartPointer<vtkRenderer>::New();
-  vtkSmartPointer<vtkRenderWindow> renderWindow = 
-    vtkSmartPointer<vtkRenderWindow>::New();
-  renderWindow->SetOffScreenRendering( 1 ); 
-  renderWindow->AddRenderer(renderer);
+    // Setup offscreen rendering
+    vtkSmartPointer<vtkGraphicsFactory> graphics_factory = 
+        vtkSmartPointer<vtkGraphicsFactory>::New();
+    graphics_factory->SetOffScreenOnlyMode( 1);
+    graphics_factory->SetUseMesaClasses( 1 );
 
-  // Add the actors to the scene
-  renderer->AddActor(actor);
-  renderer->SetBackground(1,1,1); // Background color white
+    vtkSmartPointer<vtkImagingFactory> imaging_factory = 
+        vtkSmartPointer<vtkImagingFactory>::New();
+    imaging_factory->SetUseMesaClasses( 1 ); 
 
-  renderWindow->Render();
+    // Create a sphere
+    vtkSmartPointer<vtkSphereSource> sphereSource = 
+        vtkSmartPointer<vtkSphereSource>::New();
 
-  vtkSmartPointer<vtkWindowToImageFilter> windowToImageFilter = 
-    vtkSmartPointer<vtkWindowToImageFilter>::New();
-  windowToImageFilter->SetInput(renderWindow);
-  windowToImageFilter->Update();
-  
-  vtkSmartPointer<vtkPNGWriter> writer = 
-    vtkSmartPointer<vtkPNGWriter>::New();
-  writer->SetFileName("screenshot.png");
-  writer->SetInputConnection(windowToImageFilter->GetOutputPort());
-  writer->Write();
+    // Create a mapper and actor
+    vtkSmartPointer<vtkPolyDataMapper> mapper = 
+        vtkSmartPointer<vtkPolyDataMapper>::New();
+    mapper->SetInputConnection(sphereSource->GetOutputPort());
 
-  return EXIT_SUCCESS;
+    vtkSmartPointer<vtkActor> actor = 
+        vtkSmartPointer<vtkActor>::New();
+    actor->SetMapper(mapper);
+
+    // A renderer and render window
+    vtkSmartPointer<vtkRenderer> renderer = 
+        vtkSmartPointer<vtkRenderer>::New();
+    vtkSmartPointer<vtkRenderWindow> renderWindow = 
+        vtkSmartPointer<vtkRenderWindow>::New();
+    renderWindow->SetOffScreenRendering( 1 ); 
+    renderWindow->AddRenderer(renderer);
+
+    // Add the actors to the scene
+    renderer->AddActor(actor);
+    renderer->SetBackground(1,1,1); // Background color white
+
+    renderWindow->Render();
+
+    vtkSmartPointer<vtkWindowToImageFilter> windowToImageFilter = 
+        vtkSmartPointer<vtkWindowToImageFilter>::New();
+    windowToImageFilter->SetInput(renderWindow);
+    windowToImageFilter->Update();
+
+    vtkSmartPointer<vtkPNGWriter> writer = 
+        vtkSmartPointer<vtkPNGWriter>::New();
+    writer->SetFileName("screenshot.png");
+    writer->SetInputConnection(windowToImageFilter->GetOutputPort());
+    writer->Write();
+
+    return EXIT_SUCCESS;
 }
 #endif

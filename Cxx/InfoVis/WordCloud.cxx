@@ -1,5 +1,4 @@
 #include <vtkSmartPointer.h>
-
 #include <vtkFreeTypeTools.h>
 #include <vtkImageBlend.h>
 #include <vtkImageIterator.h>

@@ -1,10 +1,11 @@
-#include <vtkSmartPointer.h>
-#include <vtkPerspectiveTransform.h>
-#include <vtkTransform.h>
-#include <vtkMatrix4x4.h>
+//#include <vtkSmartPointer.h>
+//#include <vtkPerspectiveTransform.h>
+//#include <vtkTransform.h>
+//#include <vtkMatrix4x4.h>
 
 int main(int, char *[])
 {
+    /*
   vtkSmartPointer<vtkMatrix4x4> m =
     vtkSmartPointer<vtkMatrix4x4>::New();
   m->SetElement(0,0,1);
@@ -53,4 +54,5 @@ int main(int, char *[])
     << perspectiveProjection[2] << std::endl;
 
   return EXIT_SUCCESS;
+  */
 }

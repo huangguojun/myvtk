@@ -8,7 +8,7 @@
 #include <vtkLineSource.h>
 #include <vtkPoints.h>
 #include <vtkQuad.h>
-#include <vtkExtractEnclosedPoints.h>
+//#include <vtkExtractEnclosedPoints.h>
 #include <vtkAlgorithmOutput.h>
 #include <vtkCleanPolyData.h>
 
@@ -46,6 +46,7 @@ double MakeAQuad(std::vector<std::array<double, 3>> &,
 
 int main (int argc, char *argv[])
 {
+    /*
   auto polyData = ReadPolyData(argc > 1 ? argv[1] : "");;
 
   // Get bounds of polydata
@@ -311,7 +312,9 @@ int main (int argc, char *argv[])
   renderWindowInteractor->Start();
 
   return EXIT_SUCCESS;
+  */
 }
+
 namespace {
 vtkSmartPointer<vtkPolyData> ReadPolyData(std::string const& fileName)
 {

@@ -3,7 +3,7 @@ project (${WIKI}RenderMan)
 if(NOT VTK_BINARY_DIR)
   set(VTK_LIBRARIES "")
   if (VTK_VERSION VERSION_LESS "8.90.0")
-    set(components "vtkIOExportOpenGL2")
+#  set(components "vtkIOExportOpenGL2")
   endif()
 
   set(VTK_LIBRARIES "")
@@ -11,7 +11,7 @@ if(NOT VTK_BINARY_DIR)
     vtkCommonCore
     vtkFiltersCore
     vtkIOExport
-    vtkIOExportPDF
+#   vtkIOExportPDF
     vtkIOXML
     vtkInteractionStyle
     vtkRenderingContextOpenGL2

@@ -27,7 +27,7 @@
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
 #include <vtkShaderProgram.h>
-#include <vtkSkybox.h>
+//#include <vtkSkybox.h>
 #include <vtkSmartPointer.h>
 #include <vtkTexture.h>
 #include <vtkVersion.h>
@@ -41,6 +41,7 @@
 //----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
+    /*
   if (argc < 3)
   {
     std::cout << "Usage: " << argv[0] << " file.vtp wintersun.jpg" << std::endl;
@@ -206,4 +207,5 @@ int main(int argc, char* argv[])
   interactor->Start();
 
   return EXIT_SUCCESS;
+  */
 }

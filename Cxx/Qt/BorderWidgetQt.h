@@ -5,7 +5,7 @@
 #include <QMainWindow>
 
 class vtkBorderWidget;
-
+/*
 #include "ui_BorderWidgetQt.h"
 
 class BorderWidgetQt : public QMainWindow, private Ui::BorderWidgetQt
@@ -20,5 +20,5 @@ public:
 private:
   vtkSmartPointer<vtkBorderWidget> BorderWidget;
 };
-
+*/
 #endif

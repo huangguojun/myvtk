@@ -242,6 +242,7 @@ void DisplayBoundingBoxAndCenter(std::string const& name, int const& index,
 
 int main(int argc, char* argv[])
 {
+    /*
   // These two maps need to be filled in by the user.
   // key: Optional arguments such as -f or --foo with no parameters.
   // value: A suitable name. For the keys -f or --foo, the name would be the
@@ -569,12 +570,14 @@ int main(int argc, char* argv[])
   interactor->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 
 namespace {
 
 std::string ShowUsage(std::string fn)
 {
+    /*
   // Remove the folder (if present) then remove the extension in this order
   // since the folder name may contain perionds.
   auto last_slash_idx = fn.find_last_of("\\/");
@@ -684,6 +687,7 @@ GetParametricFunctions()
   static_cast<vtkParametricKuen*>(pfn[1]["Kuen"].GetPointer())
       ->SetDeltaV0(0.001);
   return pfn;
+  */
 }
 
 std::vector<double> GetCentre(const std::vector<double>& bounds)
@@ -717,6 +721,7 @@ double GetMaximumLength(const std::vector<double>& bounds)
 void DisplayBoundingBoxAndCenter(std::string const& name, int const& index,
                                  std::vector<double> const& bounds)
 {
+    /*
   if (bounds.size() != 6)
   {
     return;
@@ -738,10 +743,12 @@ void DisplayBoundingBoxAndCenter(std::string const& name, int const& index,
             << std::setw(6) << centre[1] << ", " << std::setw(6) << centre[2]
             << ")\n"
             << std::endl;
+            */
 }
 
 void WriteImage(std::string const& fileName, vtkRenderWindow* renWin, bool rgba)
 {
+    /*
   if (!fileName.empty())
   {
     std::string fn = fileName;
@@ -814,6 +821,7 @@ void WriteImage(std::string const& fileName, vtkRenderWindow* renWin, bool rgba)
   }
 
   return;
+  */
 }
 
 

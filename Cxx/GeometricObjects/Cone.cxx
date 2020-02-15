@@ -12,6 +12,7 @@
 
 int main(int, char *[])
 {
+    /*
   //Create a cone
   auto coneSource =
     vtkSmartPointer<vtkConeSource>::New();
@@ -51,4 +52,5 @@ int main(int, char *[])
   renderWindowInteractor->Start();
   
   return EXIT_SUCCESS;
+  */
 }

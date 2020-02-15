@@ -19,6 +19,7 @@
 
 int main( int, char*[] )
 {
+    /*
   vtkSmartPointer<vtkNamedColors> colors =
     vtkSmartPointer<vtkNamedColors>::New();
 
@@ -107,4 +108,5 @@ int main( int, char*[] )
   renderWindowInteractor->Start();
 
   return EXIT_SUCCESS;
+  */
 }

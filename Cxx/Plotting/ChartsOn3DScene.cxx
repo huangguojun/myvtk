@@ -20,6 +20,7 @@
 int main(int , char * [])
 {
 
+    /*
   vtkNew<vtkNamedColors> colors;
 
   vtkNew<vtkRenderWindow> renwin;
@@ -120,4 +121,5 @@ int main(int , char * [])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }

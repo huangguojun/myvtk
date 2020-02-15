@@ -14,7 +14,7 @@
 #include <vtkTransform.h>
 #include <vtkTransformPolyDataFilter.h>
 #include <vtkTriangleFilter.h>
-#include <vtkTriangleMeshPointNormals.h>
+//#include <vtkTriangleMeshPointNormals.h>
 
 #include <vtkBYUReader.h>
 #include <vtkOBJReader.h>
@@ -202,6 +202,7 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(const char* fileName);
 //----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
+#if 0
   if (argc < 2)
   {
     std::cout << "Usage: " << argv[0] << " PerlnNoise.glsl "
@@ -617,6 +618,7 @@ int main(int argc, char* argv[])
             << " x " << bounds[1] - bounds[0] << " y " << bounds[3] - bounds[2]
             << " y " << bounds[5] - bounds[4] << std::endl;
   return EXIT_SUCCESS;
+#endif
 }
 
 namespace {

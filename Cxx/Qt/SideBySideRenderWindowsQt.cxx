@@ -1,10 +1,10 @@
-#include "SideBySideRenderWindowsQt.h"
+//#include "SideBySideRenderWindowsQt.h"
 
 #include <vtkCamera.h>
 #include <vtkCubeSource.h>
 #include <vtkDataObjectToTable.h>
 #include <vtkElevationFilter.h>
-#include <vtkGenericOpenGLRenderWindow.h>
+//#include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkNamedColors.h>
 #include <vtkNew.h>
 #include <vtkPolyDataMapper.h>
@@ -19,9 +19,12 @@
 #define VTK890 1
 #endif
 
+/*
 // Constructor
 SideBySideRenderWindowsQt::SideBySideRenderWindowsQt()
 {
+
+    
   this->setupUi(this);
 
   vtkNew<vtkNamedColors> colors;
@@ -88,9 +91,11 @@ SideBySideRenderWindowsQt::SideBySideRenderWindowsQt()
 
   // Set up action signals and slots
   connect(this->actionExit, SIGNAL(triggered()), this, SLOT(slotExit()));
+  
 }
 
 void SideBySideRenderWindowsQt::slotExit()
 {
-  qApp->exit();
+ // qApp->exit();
 }
+*/

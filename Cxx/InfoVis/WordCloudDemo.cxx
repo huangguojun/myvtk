@@ -1,5 +1,5 @@
 #include <vtkSmartPointer.h>
-#include <vtkWordCloud.h>
+//#include <vtkWordCloud.h>
 
 #include <vtkTextProperty.h>
 #include <vtkRenderWindow.h>
@@ -14,106 +14,109 @@
 
 #include <vtksys/CommandLineArguments.hxx>
 
+/*
 namespace
 {
-// Cloud Parameters
-class CloudParameters
-{
-public:
-  CloudParameters() :
-    BackgroundColorName("MidnightBlue"),
-    BWMask(false),
-    ColorSchemeName(""),
-    DPI(200),
-    FileName(""),
-    FontFileName(""),
-    FontMultiplier(6),
-    Gap(2),
-    MaskColorName("black"),
-    MaskFileName(""),
-    MaxFontSize(48),
-    MinFontSize(12),
-    MinFrequency(1),
-    StopListFileName(""),
-    Title(""),
-    WordColorName(""){};
-  void Print(ostream& os)
-  {
-    os << "Cloud Parameters" << std::endl;
-    os << "  BackgroundColorName: " << BackgroundColorName << std::endl;
-    os << "  BWMask: " << (BWMask ? "true" : "false") << std::endl;
-    os << "  ColorDistribution: " << ColorDistribution[0] << " " << ColorDistribution[1] << std::endl;
-    os << "  ColorSchemeName: " <<  ColorSchemeName << std::endl;
-    os << "  DPI: " << DPI << std::endl;
-    os << "  FontFileName: " << FontFileName << std::endl;
-    os << "  FontMultiplier: " << FontMultiplier << std::endl;
-    os << "  Gap: " << Gap << std::endl;
-    os << "  MaskColorName: " << MaskColorName << std::endl;
-    os << "  MaskFileName: " << MaskFileName << std::endl;
-    os << "  MinFontSize: " << MinFontSize << std::endl;
-    os << "  MaxFontSize: " << MaxFontSize << std::endl;
-    os << "  MinFrequency: " << MinFrequency << std::endl;
-    os << "  OffsetDistribution: " << OffsetDistribution[0] << " " << OffsetDistribution[1] << std::endl;
-    os << "  OrientationDistribution: " << OrientationDistribution[0] << " " << OrientationDistribution[1] << std::endl;
-    os << "  Orientations: ";
-    for (auto o : Orientations)
+    // Cloud Parameters
+    class CloudParameters
     {
-      os << o << " ";
-    }
-    os << std::endl;
-    os << "  ReplacementPairs: ";
-    for (auto p = 0; p < ReplacementPairs.size(); p += 2)
-    {
-      os << ReplacementPairs[p] << "->" << ReplacementPairs[p + 1] << " ";
-    }
-    os << std::endl;
-    os << "  Sizes: " << Sizes[0] << " " << Sizes[1] << std::endl;
-    os << "  StopWords: ";
-    for (auto s : StopWords)
-    {
-      os << s << " ";
-    }
-    os << std::endl;
-    os << "  Title: " << Title << std::endl;
-    os << "  WordColorName: " << WordColorName << std::endl;
-  }
-  std::string              BackgroundColorName;
-  bool                     BWMask;
-  std::string              ColorSchemeName;
-  std::vector<double>      ColorDistribution;
-  int                      DPI;
-  std::string              FileName;
-  std::string              FontFileName;
-  int                      FontMultiplier;
-  int                      Gap;
-  std::string              MaskColorName;
-  std::string              MaskFileName;
-  int                      MaxFontSize;
-  int                      MinFontSize;
-  int                      MinFrequency;
-  std::vector<int>         OffsetDistribution;
-  std::vector<double>      OrientationDistribution;
-  std::vector<double>      Orientations;
-  std::vector<std::string> ReplacementPairs;
-  std::vector<int>         Sizes;
-  std::vector<std::string> StopWords;
-  std::string              StopListFileName;
-  std::string              Title;
-  std::string              WordColorName;
-};
+        public:
+            CloudParameters() :
+                BackgroundColorName("MidnightBlue"),
+                BWMask(false),
+                ColorSchemeName(""),
+                DPI(200),
+                FileName(""),
+                FontFileName(""),
+                FontMultiplier(6),
+                Gap(2),
+                MaskColorName("black"),
+                MaskFileName(""),
+                MaxFontSize(48),
+                MinFontSize(12),
+                MinFrequency(1),
+                StopListFileName(""),
+                Title(""),
+                WordColorName(""){};
+            void Print(ostream& os)
+            {
+                os << "Cloud Parameters" << std::endl;
+                os << "  BackgroundColorName: " << BackgroundColorName << std::endl;
+                os << "  BWMask: " << (BWMask ? "true" : "false") << std::endl;
+                os << "  ColorDistribution: " << ColorDistribution[0] << " " << ColorDistribution[1] << std::endl;
+                os << "  ColorSchemeName: " <<  ColorSchemeName << std::endl;
+                os << "  DPI: " << DPI << std::endl;
+                os << "  FontFileName: " << FontFileName << std::endl;
+                os << "  FontMultiplier: " << FontMultiplier << std::endl;
+                os << "  Gap: " << Gap << std::endl;
+                os << "  MaskColorName: " << MaskColorName << std::endl;
+                os << "  MaskFileName: " << MaskFileName << std::endl;
+                os << "  MinFontSize: " << MinFontSize << std::endl;
+                os << "  MaxFontSize: " << MaxFontSize << std::endl;
+                os << "  MinFrequency: " << MinFrequency << std::endl;
+                os << "  OffsetDistribution: " << OffsetDistribution[0] << " " << OffsetDistribution[1] << std::endl;
+                os << "  OrientationDistribution: " << OrientationDistribution[0] << " " << OrientationDistribution[1] << std::endl;
+                os << "  Orientations: ";
+                for (auto o : Orientations)
+                {
+                    os << o << " ";
+                }
+                os << std::endl;
+                os << "  ReplacementPairs: ";
+                for (auto p = 0; p < ReplacementPairs.size(); p += 2)
+                {
+                    os << ReplacementPairs[p] << "->" << ReplacementPairs[p + 1] << " ";
+                }
+                os << std::endl;
+                os << "  Sizes: " << Sizes[0] << " " << Sizes[1] << std::endl;
+                os << "  StopWords: ";
+                for (auto s : StopWords)
+                {
+                    os << s << " ";
+                }
+                os << std::endl;
+                os << "  Title: " << Title << std::endl;
+                os << "  WordColorName: " << WordColorName << std::endl;
+            }
+            std::string              BackgroundColorName;
+            bool                     BWMask;
+            std::string              ColorSchemeName;
+            std::vector<double>      ColorDistribution;
+            int                      DPI;
+            std::string              FileName;
+            std::string              FontFileName;
+            int                      FontMultiplier;
+            int                      Gap;
+            std::string              MaskColorName;
+            std::string              MaskFileName;
+            int                      MaxFontSize;
+            int                      MinFontSize;
+            int                      MinFrequency;
+            std::vector<int>         OffsetDistribution;
+            std::vector<double>      OrientationDistribution;
+            std::vector<double>      Orientations;
+            std::vector<std::string> ReplacementPairs;
+            std::vector<int>         Sizes;
+            std::vector<std::string> StopWords;
+            std::string              StopListFileName;
+            std::string              Title;
+            std::string              WordColorName;
+    };
 
-bool ProcessCommandLine(
-  vtksys::CommandLineArguments &arg,
-  CloudParameters &cloudParameters);
+    bool ProcessCommandLine(
+                vtksys::CommandLineArguments &arg,
+                CloudParameters &cloudParameters);
 
-void CloudParametersToWordCloud(
-  CloudParameters &cloudParameters,
-  vtkSmartPointer<vtkWordCloud> &wordCloud);
+    void CloudParametersToWordCloud(
+                CloudParameters &cloudParameters,
+                vtkSmartPointer<vtkWordCloud> &wordCloud);
 }
+*/
 
 int main (int argc,  char *argv[])
 {
-  // Process command line argumemts
+    /*
+    // Process command line argumemts
   CloudParameters cloudParameters;
   vtksys::CommandLineArguments arg;
   arg.Initialize(argc, argv);
@@ -164,13 +167,16 @@ int main (int argc,  char *argv[])
   interactor->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 
+/*
 namespace
 {
 bool ProcessCommandLine(vtksys::CommandLineArguments &arg,
                         CloudParameters &cloudParameters)
 {
+    
   typedef vtksys::CommandLineArguments argT;
 
   // Need this to get arguments without --'s
@@ -317,3 +323,5 @@ void CloudParametersToWordCloud(
   wordCloud->SetTitle(title);
 }
 }
+
+*/

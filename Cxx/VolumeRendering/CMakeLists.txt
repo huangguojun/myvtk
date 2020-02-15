@@ -47,8 +47,8 @@ endif()
 foreach(SOURCE_FILE ${ALL_FILES})
   string(REPLACE ".cxx" "" TMP ${SOURCE_FILE})
   string(REPLACE ${CMAKE_CURRENT_SOURCE_DIR}/ "" EXAMPLE ${TMP})
-  add_executable(${WIKI}${EXAMPLE} ${EXECUTABLE_FLAG} ${EXAMPLE}.cxx)
-  target_link_libraries(${WIKI}${EXAMPLE} ${KIT_LIBS})
+#add_executable(${WIKI}${EXAMPLE} ${EXECUTABLE_FLAG} ${EXAMPLE}.cxx)
+#  target_link_libraries(${WIKI}${EXAMPLE} ${KIT_LIBS})
   if (NOT VTK_VERSION VERSION_LESS "8.90.0")
     vtk_module_autoinit(
       TARGETS ${WIKI}${EXAMPLE}

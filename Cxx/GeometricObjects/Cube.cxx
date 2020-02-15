@@ -35,6 +35,7 @@
 
 int main(int, char *[])
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   std::array<std::array<double, 3>, 8> pts = {{{{0, 0, 0}},
@@ -106,4 +107,5 @@ int main(int, char *[])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }

@@ -2,7 +2,7 @@
 
 // Importers
 #include <vtk3DSImporter.h>
-#include <vtkGLTFImporter.h>
+//#include <vtkGLTFImporter.h>
 #include <vtkOBJImporter.h>
 #include <vtkVRMLImporter.h>
 
@@ -36,6 +36,7 @@
 
 int main (int argc, char *argv[])
 {
+    /*
   auto importRenderWindow =
     vtkSmartPointer<vtkRenderWindow>::New();
   auto importRenderer =
@@ -179,4 +180,5 @@ int main (int argc, char *argv[])
   renderWindowInteractor->Start();
 
   return EXIT_SUCCESS;
+  */
 }

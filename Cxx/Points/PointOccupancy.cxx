@@ -8,7 +8,7 @@
 #include <vtkSTLReader.h>
 #include <vtkXMLPolyDataReader.h>
 
-#include <vtkPointOccupancyFilter.h>
+//#include <vtkPointOccupancyFilter.h>
 #include <vtkThreshold.h>
 #include <vtkDataSetMapper.h>
 #include <vtkImageData.h>
@@ -29,6 +29,7 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(const char *fileName);
 
 int main (int argc, char *argv[])
 {
+    /*
   vtkSmartPointer<vtkPolyData> polyData = ReadPolyData(argc > 1 ? argv[1] : "");;
   int dimension = 128;
   vtkSmartPointer<vtkPointOccupancyFilter> occupancy = 
@@ -92,6 +93,7 @@ int main (int argc, char *argv[])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 
 namespace

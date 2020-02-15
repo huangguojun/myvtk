@@ -5,8 +5,9 @@
 
 #include <QMainWindow>
 
-#include "ui_SideBySideRenderWindowsQt.h"
+//#include "ui_SideBySideRenderWindowsQt.h"
 
+/*
 class SideBySideRenderWindowsQt : public QMainWindow,
                                   private Ui::SideBySideRenderWindowsQt
 {
@@ -20,5 +21,5 @@ public slots:
 
   void slotExit();
 };
-
+*/
 #endif

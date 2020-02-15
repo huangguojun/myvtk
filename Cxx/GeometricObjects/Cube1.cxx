@@ -11,7 +11,7 @@
 
 int main(int, char *[])
 {
-
+/*
     vtkNew<vtkNamedColors> colors;
 
     // Create a rendering window and renderer.
@@ -53,5 +53,6 @@ int main(int, char *[])
     iren->Start();
 
     return EXIT_SUCCESS;
+    */
 }
 

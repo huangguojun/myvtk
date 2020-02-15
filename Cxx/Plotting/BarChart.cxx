@@ -23,6 +23,7 @@ static int data_2010[] = {9058, 10941, 9979, 10270, 8900, 11228, 14688, 12231, 1
 
 int main(int, char*[] )
 {
+    /*
   // Colors
   vtkNew<vtkColorSeries> colorSeries;
   colorSeries->SetColorScheme(vtkColorSeries::BREWER_SEQUENTIAL_YELLOW_ORANGE_BROWN_3);
@@ -119,4 +120,5 @@ int main(int, char*[] )
   view->GetInteractor()->Start();
 
   return EXIT_SUCCESS;
+  */
 }

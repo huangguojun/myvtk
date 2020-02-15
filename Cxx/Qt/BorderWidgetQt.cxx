@@ -17,6 +17,7 @@
 #define VTK890 1
 #endif
 
+/*
 class BorderCallback : public vtkCommand
 {
 public:
@@ -81,3 +82,4 @@ BorderWidgetQt::BorderWidgetQt()
 #endif
   this->BorderWidget->On();
 }
+*/

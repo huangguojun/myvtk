@@ -1,11 +1,12 @@
 #include <QApplication>
 #include <QSurfaceFormat>
 
-#include <QVTKOpenGLNativeWidget.h>
-#include "SideBySideRenderWindowsQt.h"
+//#include <QVTKOpenGLNativeWidget.h>
+//#include "SideBySideRenderWindowsQt.h"
 
 int main( int argc, char** argv )
 {
+    /*
   // needed to ensure appropriate OpenGL context is created for VTK rendering.
   QSurfaceFormat::setDefaultFormat(QVTKOpenGLNativeWidget::defaultFormat());
 
@@ -16,4 +17,5 @@ int main( int argc, char** argv )
   sideBySideRenderWindowsQt.show();
   
   return app.exec();
+  */
 }

@@ -8,7 +8,7 @@
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
 #include <vtkSmartPointer.h>
-#include <vtkTriangleMeshPointNormals.h>
+//#include <vtkTriangleMeshPointNormals.h>
 #include <vtkVersion.h>
 
 #include <vtkBYUReader.h>
@@ -32,6 +32,7 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(const char* fileName);
 //----------------------------------------------------------------------------
 int main(int argc, char* argv[])
 {
+#if 0
   auto polyData = ReadPolyData(argc > 1 ? argv[1] : "");
 
   auto colors = vtkSmartPointer<vtkNamedColors>::New();
@@ -179,6 +180,7 @@ int main(int argc, char* argv[])
   interactor->Start();
 
   return EXIT_SUCCESS;
+#endif 
 }
 
 namespace {

@@ -245,7 +245,7 @@ void ExportMultiBlockScene(vtkRenderer* renderer, std::string fileName,
   vtkSmartPointer<T> name = vtkSmartPointer<T>::New();                         \
   name->SetNumberOfComponents(components);                                     \
   name->SetNumberOfTuples(tuples);                                             \
-  name->SetTuple(0, instance->Get##name());                                    \
+  //name->SetTuple(0, instance->Get##name());                                    \
   name->SetName(std::string(arrayPrefix + ":" + "#name").c_str());             \
   pd->GetFieldData()->AddArray(name)
 

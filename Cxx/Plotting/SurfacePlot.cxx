@@ -18,6 +18,7 @@
 
 int main(int , char * [])
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   vtkNew<vtkChartXYZ> chart;
@@ -83,6 +84,6 @@ int main(int , char * [])
   chart->MouseMoveEvent(mouseEvent);
 
   view->GetInteractor()->Start();
-
+*/
   return EXIT_SUCCESS;
 }

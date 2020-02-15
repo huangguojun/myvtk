@@ -10,7 +10,7 @@
 #include <vtkRenderWindow.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
-#include <vtkSimpleMotionBlurPass.h>
+//#include <vtkSimpleMotionBlurPass.h>
 #include <vtkTextureObject.h>
 
 #include <array>
@@ -18,6 +18,7 @@
 //----------------------------------------------------------------------------
 int main(int, char *argv[])
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   // Set the colors.
@@ -118,5 +119,6 @@ int main(int, char *argv[])
   iren->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 

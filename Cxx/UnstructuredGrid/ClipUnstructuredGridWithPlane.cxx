@@ -19,6 +19,7 @@
 
 int main(int argc, char *argv[])
 {
+    /*
   if (argc < 2)
   {
     std::cout << "Usage: " << argv[0] << " filename.vtk" << std::endl;
@@ -156,4 +157,5 @@ int main(int argc, char *argv[])
               << " occurs " << c.second << " times." << std::endl;
   }
   return EXIT_SUCCESS;
+  */
 }

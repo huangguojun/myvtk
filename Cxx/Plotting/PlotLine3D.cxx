@@ -34,6 +34,7 @@ void lorenz(const float * varX, float * varXDerivative)
 //----------------------------------------------------------------------------
 int main(int, char * [])
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   // Create the data.
@@ -94,4 +95,5 @@ int main(int, char * [])
   view->GetInteractor()->Start();
 
   return EXIT_SUCCESS;
+  */
 }

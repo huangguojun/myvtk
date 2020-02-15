@@ -24,6 +24,7 @@
 //----------------------------------------------------------------------------
 int main(int, char * [])
 {
+    /*
   vtkNew<vtkNamedColors> colors;
 
   // Creates an input table
@@ -139,4 +140,5 @@ int main(int, char * [])
   view->GetInteractor()->Start();
 
   return EXIT_SUCCESS;
+  */
 }

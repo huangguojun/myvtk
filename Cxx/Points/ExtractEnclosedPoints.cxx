@@ -1,5 +1,5 @@
 #include <vtkSmartPointer.h>
-#include <vtkExtractEnclosedPoints.h>
+//#include <vtkExtractEnclosedPoints.h>
 
 #include <vtkBYUReader.h>
 #include <vtkOBJReader.h>
@@ -30,6 +30,7 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(const char *fileName);
 
 int main (int argc, char *argv[])
 {
+    /*
   vtkSmartPointer<vtkPolyData> polyData = ReadPolyData(argc > 1 ? argv[1] : "");
   std::mt19937 mt(4355412); //Standard mersenne_twister_engine
   double bounds[6];
@@ -127,6 +128,7 @@ int main (int argc, char *argv[])
   renderWindowInteractor->Start();
 
   return EXIT_SUCCESS;
+  */
 }
 
 namespace

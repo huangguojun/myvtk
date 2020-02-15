@@ -3,7 +3,7 @@
 #include <vtkCamera.h>
 #include <vtkCellData.h>
 #include <vtkCellType.h>
-#include <vtkCellTypeSource.h>
+//#include <vtkCellTypeSource.h>
 #include <vtkCellTypes.h>
 #include <vtkColorSeries.h>
 #include <vtkDataSetMapper.h>
@@ -27,6 +27,7 @@
 
 int main(int argc, char* argv[])
 {
+    /*
   std::string cellName = "vtkTetra";
   if (argc > 1)
   {
@@ -185,4 +186,5 @@ int main(int argc, char* argv[])
   renderWindowInteractor->Start();
 
   return EXIT_SUCCESS;
+  */
 }

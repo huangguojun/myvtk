@@ -18,6 +18,7 @@
 
 int main(int, char*[])
 {
+    
   // Create hyper tree grid source
   auto source = vtkSmartPointer<vtkHyperTreeGridSource>::New();
 #if VTK_VERSION_NUMBER >= 89000000000ULL
@@ -25,7 +26,7 @@ int main(int, char*[])
 #else
   source->SetMaximumLevel(6);
 #endif
-  source->SetDimensions(4, 4, 3); // GridCell 3, 3, 2
+ // source->SetDimensions(4, 4, 3); // GridCell 3, 3, 2
   source->SetGridScale(1.5, 1.0, 0.7);
   source->SetBranchFactor(4);
   source->SetDescriptor(

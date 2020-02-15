@@ -158,7 +158,7 @@ vtkSmartPointer<vtkTexture> ReadCubeMap(std::string const& folderPath,
     std::exit(EXIT_FAILURE);
   }
   auto texture = vtkSmartPointer<vtkTexture>::New();
-  texture->CubeMapOn();
+  //texture->CubeMapOn();
   // Build the file names.
   std::for_each(fns.begin(), fns.end(),
                 [&folderPath, &fileRoot, &ext](std::string& f) {

@@ -70,13 +70,13 @@ foreach(EXAMPLE_FILE ${ALL_UI_FILES})
   set(MOCSrcs)
   qt5_wrap_ui(UISrcs ${EXAMPLE}.ui)
   # CMAKE_AUTOMOC in ON so the MocHdrs will be automatically wrapped.
-  add_executable(${WIKI}${EXAMPLE} ${EXECUTABLE_FLAG} ${EXAMPLE}Driver.cxx ${EXAMPLE}.cxx ${UISrcs} ${EXAMPLE}.h)
+# add_executable(${WIKI}${EXAMPLE} ${EXECUTABLE_FLAG} ${EXAMPLE}Driver.cxx ${EXAMPLE}.cxx ${UISrcs} ${EXAMPLE}.h)
   if (Qt5Widgets_VERSION VERSION_LESS "5.11.0")
-    qt5_use_modules(${WIKI}${EXAMPLE} Core Gui Widgets)
+#    qt5_use_modules(${WIKI}${EXAMPLE} Core Gui Widgets)
   else()
-    target_link_libraries(${WIKI}${EXAMPLE} Qt5::Core Qt5::Gui Qt5::Widgets)
+#   target_link_libraries(${WIKI}${EXAMPLE} Qt5::Core Qt5::Gui Qt5::Widgets)
   endif()
-  target_link_libraries(${WIKI}${EXAMPLE} ${KIT_LIBS})
+#  target_link_libraries(${WIKI}${EXAMPLE} ${KIT_LIBS})
   if (VTK_VERSION VERSION_GREATER "8.8")
     vtk_module_autoinit(
       TARGETS ${WIKI}${EXAMPLE}

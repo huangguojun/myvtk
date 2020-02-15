@@ -1,6 +1,6 @@
 #include "vtkActor.h"
 #include "vtkCamera.h"
-#include "vtkCollisionDetectionFilter.h"
+//#include "vtkCollisionDetectionFilter.h"
 #include "vtkMatrix4x4.h"
 #include "vtkNamedColors.h"
 #include "vtkPolyDataMapper.h"
@@ -21,6 +21,7 @@
 
 int main(int argc, char* argv[])
 {
+    /*
   int contactMode = 0;
   if (argc > 1)
   {
@@ -152,4 +153,5 @@ int main(int argc, char* argv[])
   // collide->GetOutput(0)->Print(std::cout);
   //collide->GetOutput(1)->Print(std::cout);
   return EXIT_SUCCESS;
+  */
 }

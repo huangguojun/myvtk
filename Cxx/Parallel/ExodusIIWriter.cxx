@@ -1,11 +1,13 @@
-#include <vtkSmartPointer.h>
+/*#include <vtkSmartPointer.h>
 #include <vtkPolyData.h>
 #include <vtkExodusIIWriter.h>
 #include <vtkTimeSourceExample.h>
- 
+*/
+
 int main(int, char *[])
 {
-             
+
+    /*
   vtkSmartPointer<vtkTimeSourceExample> timeSource = 
     vtkSmartPointer<vtkTimeSourceExample>::New();
                
@@ -15,6 +17,8 @@ int main(int, char *[])
   exodusWriter->SetInputConnection (timeSource->GetOutputPort());
   exodusWriter->WriteAllTimeStepsOn ();
   exodusWriter->Write();
-                       
+                    
   return EXIT_SUCCESS;
+  */
 }
+

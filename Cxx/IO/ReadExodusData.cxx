@@ -12,6 +12,7 @@
 
 int main (int argc, char *argv[])
 {
+    /*
   vtkNew<vtkNamedColors>  colors;
 
   if (argc < 3)
@@ -66,4 +67,5 @@ int main (int argc, char *argv[])
   interactor->Start();
 
   return EXIT_SUCCESS;
+  */
 }

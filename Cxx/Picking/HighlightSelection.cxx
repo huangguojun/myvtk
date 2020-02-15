@@ -43,68 +43,68 @@ namespace {
 class HighlightInteractorStyle : public vtkInteractorStyleRubberBandPick
 {
 public:
-  static HighlightInteractorStyle* New();
-  vtkTypeMacro(HighlightInteractorStyle, vtkInteractorStyleRubberBandPick);
+    static HighlightInteractorStyle* New();
+    vtkTypeMacro(HighlightInteractorStyle, vtkInteractorStyleRubberBandPick);
 
-  HighlightInteractorStyle() : vtkInteractorStyleRubberBandPick()
-  {
-    this->SelectedMapper = vtkSmartPointer<vtkDataSetMapper>::New();
-    this->SelectedActor = vtkSmartPointer<vtkActor>::New();
-    this->SelectedActor->SetMapper(SelectedMapper);
-  }
-
-  virtual void OnLeftButtonUp() override
-  {
-    // Forward events
-    vtkInteractorStyleRubberBandPick::OnLeftButtonUp();
-
-    if (this->CurrentMode == VTKISRBP_SELECT)
+    HighlightInteractorStyle() : vtkInteractorStyleRubberBandPick()
     {
-      auto colors = vtkSmartPointer<vtkNamedColors>::New();
+        this->SelectedMapper = vtkSmartPointer<vtkDataSetMapper>::New();
+        this->SelectedActor = vtkSmartPointer<vtkActor>::New();
+        this->SelectedActor->SetMapper(SelectedMapper);
+    }
 
-      vtkPlanes* frustum =
-          static_cast<vtkAreaPicker*>(this->GetInteractor()->GetPicker())
-              ->GetFrustum();
+    virtual void OnLeftButtonUp() override
+    {
+        // Forward events
+        vtkInteractorStyleRubberBandPick::OnLeftButtonUp();
 
-      auto extractPolyDataGeometry =
-          vtkSmartPointer<vtkExtractPolyDataGeometry>::New();
-      extractPolyDataGeometry->SetInputData(this->PolyData);
-      extractPolyDataGeometry->SetImplicitFunction(frustum);
-      extractPolyDataGeometry->Update();
+        if (this->CurrentMode == VTKISRBP_SELECT)
+        {
+            auto colors = vtkSmartPointer<vtkNamedColors>::New();
 
-      std::cout << "Extracted "
+            vtkPlanes* frustum =
+                static_cast<vtkAreaPicker*>(this->GetInteractor()->GetPicker())
+                ->GetFrustum();
+
+            auto extractPolyDataGeometry =
+                vtkSmartPointer<vtkExtractPolyDataGeometry>::New();
+            extractPolyDataGeometry->SetInputData(this->PolyData);
+            extractPolyDataGeometry->SetImplicitFunction(frustum);
+            extractPolyDataGeometry->Update();
+
+            std::cout << "Extracted "
                 << extractPolyDataGeometry->GetOutput()->GetNumberOfCells()
                 << " cells." << std::endl;
-      this->SelectedMapper->SetInputData(extractPolyDataGeometry->GetOutput());
-      this->SelectedMapper->ScalarVisibilityOff();
+            this->SelectedMapper->SetInputData(extractPolyDataGeometry->GetOutput());
+            this->SelectedMapper->ScalarVisibilityOff();
 
-      //        vtkIdTypeArray* ids =
-      //        dynamic_cast<vtkIdTypeArray*>(selected->GetPointData()->GetArray("OriginalIds"));
+            //        vtkIdTypeArray* ids =
+            //        dynamic_cast<vtkIdTypeArray*>(selected->GetPointData()->GetArray("OriginalIds"));
 
-      this->SelectedActor->GetProperty()->SetColor(
-          colors->GetColor3d("Tomato").GetData());
-      this->SelectedActor->GetProperty()->SetPointSize(5);
-      this->SelectedActor->GetProperty()->SetRepresentationToWireframe();
+            this->SelectedActor->GetProperty()->SetColor(
+                        colors->GetColor3d("Tomato").GetData());
+            this->SelectedActor->GetProperty()->SetPointSize(5);
+            this->SelectedActor->GetProperty()->SetRepresentationToWireframe();
 
-      this->GetInteractor()
-          ->GetRenderWindow()
-          ->GetRenderers()
-          ->GetFirstRenderer()
-          ->AddActor(SelectedActor);
-      this->GetInteractor()->GetRenderWindow()->Render();
-      this->HighlightProp(NULL);
+            this->GetInteractor()
+                ->GetRenderWindow()
+                ->GetRenderers()
+                ->GetFirstRenderer()
+                ->AddActor(SelectedActor);
+            this->GetInteractor()->GetRenderWindow()->Render();
+            this->HighlightProp(NULL);
+        }
     }
-  }
 
-  void SetPolyData(vtkSmartPointer<vtkPolyData> polyData)
-  {
-    this->PolyData = polyData;
-  }
+    void SetPolyData(vtkSmartPointer<vtkPolyData> polyData)
+    {
+        this->PolyData = polyData;
+    }
 
 private:
-  vtkSmartPointer<vtkPolyData> PolyData;
-  vtkSmartPointer<vtkActor> SelectedActor;
-  vtkSmartPointer<vtkDataSetMapper> SelectedMapper;
+    vtkSmartPointer<vtkPolyData> PolyData;
+    vtkSmartPointer<vtkActor> SelectedActor;
+    vtkSmartPointer<vtkDataSetMapper> SelectedMapper;
 };
 vtkStandardNewMacro(HighlightInteractorStyle);
 
@@ -114,35 +114,35 @@ vtkSmartPointer<vtkPolyData> ReadPolyData(const char* fileName);
 
 int main(int argc, char* argv[])
 {
-  auto polyData = ReadPolyData(argc > 1 ? argv[1] : "");
-  ;
+    auto polyData = ReadPolyData(argc > 1 ? argv[1] : "");
+    ;
 
-  auto colors = vtkSmartPointer<vtkNamedColors>::New();
+    auto colors = vtkSmartPointer<vtkNamedColors>::New();
 
-  auto idFilter = vtkSmartPointer<vtkIdFilter>::New();
-  idFilter->SetInputData(polyData);
+    auto idFilter = vtkSmartPointer<vtkIdFilter>::New();
+    idFilter->SetInputData(polyData);
 #if VTK890
-  idFilter->SetCellIdsArrayName("OriginalIds");
-  idFilter->SetPointIdsArrayName("OriginalIds");
+    idFilter->SetCellIdsArrayName("OriginalIds");
+    idFilter->SetPointIdsArrayName("OriginalIds");
 #else
-  idFilter->SetIdsArrayName("OriginalIds");
+    idFilter->SetIdsArrayName("OriginalIds");
 #endif
-  idFilter->Update();
+    idFilter->Update();
 
-  // This is needed to convert the ouput of vtkIdFilter (vtkDataSet) back to
-  // vtkPolyData
-  auto surfaceFilter = vtkSmartPointer<vtkDataSetSurfaceFilter>::New();
-  surfaceFilter->SetInputConnection(idFilter->GetOutputPort());
-  surfaceFilter->Update();
+    // This is needed to convert the ouput of vtkIdFilter (vtkDataSet) back to
+    // vtkPolyData
+    auto surfaceFilter = vtkSmartPointer<vtkDataSetSurfaceFilter>::New();
+    surfaceFilter->SetInputConnection(idFilter->GetOutputPort());
+    surfaceFilter->Update();
 
-  vtkPolyData* input = surfaceFilter->GetOutput();
+    vtkPolyData* input = surfaceFilter->GetOutput();
 
-  // Create a mapper and actor
-  auto mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
-  mapper->SetInputData(polyData);
-  mapper->ScalarVisibilityOff();
+    // Create a mapper and actor
+    auto mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+    mapper->SetInputData(polyData);
+    mapper->ScalarVisibilityOff();
 
-  auto actor = vtkSmartPointer<vtkActor>::New();
+    auto actor = vtkSmartPointer<vtkActor>::New();
   actor->SetMapper(mapper);
   actor->GetProperty()->SetPointSize(5);
   actor->GetProperty()->SetDiffuseColor(

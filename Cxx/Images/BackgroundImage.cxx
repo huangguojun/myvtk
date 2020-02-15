@@ -18,7 +18,7 @@
 
 int main(int argc, char *argv[]) {
 
-  vtkNew<vtkNamedColors> colors;
+  vtkSmartPointer<vtkNamedColors> colors = vtkSmartPointer<vtkNamedColors>::New();
 
   std::array<unsigned char, 4> lgtCyan = {{100, 255, 255, 255}};
   std::array<unsigned char, 4> lgtMagenta = {{255, 100, 255, 255}};

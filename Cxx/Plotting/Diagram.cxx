@@ -55,6 +55,7 @@ protected:
 //----------------------------------------------------------------------------
 int main( int argc, char *argv[] )
 {
+    /*
   std::string colorSchemeName = "Brewer Diverging Brown-Blue-Green (7)";
   if (argc > 1)
   {
@@ -136,4 +137,5 @@ bool APIDiagram::Paint(vtkContext2D *painter)
   painter->DrawString(400, 500, "Canvas View");
 
 return true;
+*/
 }

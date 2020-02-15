@@ -23,6 +23,7 @@
 //----------------------------------------------------------------------------
 int main(int, char * [])
 {
+    /*
   // Define colors
   vtkNew<vtkNamedColors> colors;
   vtkColor3d backgroundColor = colors->GetColor3d("SlateGray");
@@ -107,4 +108,5 @@ int main(int, char * [])
   view->GetInteractor()->Start();
 
   return EXIT_SUCCESS;
+  */
 }
